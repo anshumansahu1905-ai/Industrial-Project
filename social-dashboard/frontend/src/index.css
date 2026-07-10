@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-ink text-paper font-body antialiased;
+  }
+  ::selection {
+    @apply bg-sage/40 text-paper;
+  }
+  *:focus-visible {
+    outline: 2px solid #4F8C7A;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(231, 228, 218, 0.15);
+    border-radius: 999px;
+  }
+}
+
+@keyframes pulse-draw {
+  from { stroke-dashoffset: 600; }
+  to { stroke-dashoffset: 0; }
+}
+.pulse-line {
+  stroke-dasharray: 600;
+  animation: pulse-draw 1.8s ease-out forwards;
+}
